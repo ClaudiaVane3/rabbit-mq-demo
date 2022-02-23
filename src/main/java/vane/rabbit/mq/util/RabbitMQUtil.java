@@ -1,4 +1,4 @@
-package vane.rabbit.mq.demo;
+package vane.rabbit.mq.util;
 
 import cn.hutool.core.util.NetUtil;
 

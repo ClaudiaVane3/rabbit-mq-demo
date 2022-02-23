@@ -1,7 +1,8 @@
-package vane.rabbit.mq.demo;
+package vane.rabbit.mq.fanout;
 
 import cn.hutool.core.util.RandomUtil;
 import com.rabbitmq.client.*;
+import vane.rabbit.mq.util.RabbitMQUtil;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
@@ -32,7 +33,7 @@ public class TestConsumer {
     String queueName = channel.queueDeclare().getQueue();
     // 队列与交换机绑定（参数 : 队列名称；交换机名称；routineKey忽略）
     channel.queueBind(queueName, EXCHANGE_NAME, "");
-    System.out.println("consumerName - 等待接受消息");
+    System.out.println(consumerName + "- 等待接受消息");
     // DefaultConsumer 实现了 Consumer 接口
     // 通过传入一个频道，告诉服务器需要哪个频道的信息，如果频道中有信息，就会执行回调函数 handleDelivery
     Consumer consumer =
